@@ -151,14 +151,14 @@
     </section>
 
     <!-- Our Impact section -->
-    <section class="py-26 px-34 bg-[#CFF0DC]">
+    <section class="md:py-25 md:px-34 py-15 bg-[#CFF0DC] px-8">
       <h2
         class="mb-10 text-center text-xl font-semibold text-[#1F2937] md:text-3xl"
       >
         Our Impact
       </h2>
       <!-- stats container -->
-      <div class="flex justify-center gap-12 text-center">
+      <div class="flex flex-col justify-center gap-12 text-center md:flex-row">
         <div class="flex-1 bg-white p-10">
           <p class="geist-font mb-3 text-3xl font-semibold text-[#15803D]">
             500k+
@@ -181,13 +181,16 @@
     </section>
 
     <!-- donate section -->
-    <section class="py-25 bg-[#166534]">
+    <section class="py-15 md:py-25 bg-[#166534]">
       <h2
         class="mb-10 text-center text-xl font-semibold text-white md:text-3xl"
       >
         Plant a Tree Today
       </h2>
-      <form class="mx-auto w-4/12 rounded-xl bg-[#15803D] p-10" action="">
+      <form
+        class="max-w-11/12 md:max-w-4/12 mx-auto rounded-xl bg-[#15803D] p-5 md:p-10"
+        action=""
+      >
         <input type="text" placeholder="Your Name" class="input mb-3 w-full" />
         <input
           type="email"
@@ -208,6 +211,13 @@
         />
       </form>
     </section>
+
+    <!-- footer section -->
+    <footer class="bg-[#14532D]">
+      <p class="py-6 text-center text-white">
+        &copy; 2025 Green Earth. All Rights Reserved.
+      </p>
+    </footer>
     <!-- scripts -->
     <script src="./scripts/index.js"></script>
   </body>
