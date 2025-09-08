@@ -83,7 +83,7 @@
 
     <!-- Hero banner section  -->
     <section
-      class="flex flex-col items-center justify-between bg-[#CFF0DC] text-center md:flex-row"
+      class="mb-24 flex flex-col items-center justify-between bg-[#CFF0DC] pt-8 text-center md:flex-row md:pt-0"
     >
       <img
         class="hidden md:block"
@@ -109,17 +109,44 @@
         src="./assets/hero-leaf2.png"
         alt="leaf image"
       />
-      <div class="flex w-full md:hidden">
+      <div class="flex w-full justify-between md:hidden">
         <img
-          class="h-auto w-1/2 object-contain md:hidden"
+          class="h-auto w-1/3 object-contain md:hidden"
           src="./assets/hero-leaf1.png"
           alt="leaf image"
         />
         <img
-          class="h-auto w-1/2 object-contain md:hidden"
+          class="h-auto w-1/3 object-contain md:hidden"
           src="./assets/hero-leaf2.png"
           alt="leaf image"
         />
+      </div>
+    </section>
+
+    <!-- About campaign  -->
+    <section class="mx-auto mb-24 w-11/12 md:w-9/12">
+      <h2
+        class="mb-10 text-center text-xl font-bold text-[#1F2937] md:text-3xl"
+      >
+        About the Campaign
+      </h2>
+      <div
+        class="mx-auto flex flex-col items-center gap-8 md:w-9/12 md:flex-row"
+      >
+        <img class="" src="./assets/about.png" alt="Tree image" />
+        <div class="text-[rgba(31,41,55,.8)]">
+          <p class="mb-5">
+            Green Earth is a global tree plantation initiative dedicated to
+            fighting climate change. Since our start, we’ve planted over 500,000
+            trees worldwide. By joining our campaign, you help restore forests,
+            create habitats for wildlife, and combat global warming.
+          </p>
+          <ul class="ml-8 list-disc">
+            <li>Restoration of natural habitats</li>
+            <li>Improvement of air quality</li>
+            <li>Support for local communities</li>
+          </ul>
+        </div>
       </div>
     </section>
     <!-- scripts -->
