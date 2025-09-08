@@ -18,6 +18,14 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- font awesome integration -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- tailwind & daisyui cdn  -->
     <link
@@ -120,6 +128,125 @@
           src="./assets/hero-leaf2.png"
           alt="leaf image"
         />
+      </div>
+    </section>
+    <!-- tree section -->
+    <section class="mb-25 mx-auto w-10/12">
+      <h2
+        class="mb-10 text-center text-xl font-semibold text-[#1F2937] md:text-3xl"
+      >
+        Choose Your Trees
+      </h2>
+      <div class="grid grid-cols-12 gap-8">
+        <!-- category navigation -->
+        <nav class="col-span-2 w-full">
+          <h3 class="mb-4 text-xl font-semibold">Categories</h3>
+          <div>
+            <ul>
+              <li>
+                <a
+                  class="block rounded-[4px] bg-[#15803D] px-2.5 py-2 font-medium text-white"
+                  href=""
+                  >All Trees</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- tree container -->
+        <div class="col-span-8 grid grid-cols-3 gap-8" id="tree-container">
+          <!-- card1 -->
+          <div class="p-4">
+            <img class="mb-3" src="./assets/about.png" alt="" />
+            <h4 class="mb-2 text-[14px] font-semibold text-[#1F2937]">
+              Mango Tree
+            </h4>
+            <p class="mb-2 text-[12px] text-[rgba(31,41,55,0.8)]">
+              A fast-growing tropical tree that produces delicious, juicy
+              mangoes during summer. Its dense green
+            </p>
+            <div class="mb-3 flex items-center justify-between">
+              <p
+                class="giest-font bg-[#DCFCE7] px-3 py-1 text-[14px] font-medium text-[#15803D]"
+              >
+                Fruit Tree
+              </p>
+              <p class="text-[14px] font-semibold text-[#1F2937]">
+                <i class="fa-solid fa-bangladeshi-taka-sign"></i>500tk
+              </p>
+            </div>
+            <button class="btn w-full rounded-full bg-[#15803D] text-white">
+              Add to Cart
+            </button>
+          </div>
+          <div class="p-4">
+            <img class="mb-3" src="./assets/about.png" alt="" />
+            <h4 class="mb-2 text-[14px] font-semibold text-[#1F2937]">
+              Mango Tree
+            </h4>
+            <p class="mb-2 text-[12px] text-[rgba(31,41,55,0.8)]">
+              A fast-growing tropical tree that produces delicious, juicy
+              mangoes during summer. Its dense green
+            </p>
+            <div class="mb-3 flex items-center justify-between">
+              <p
+                class="giest-font bg-[#DCFCE7] px-3 py-1 text-[14px] font-medium text-[#15803D]"
+              >
+                Fruit Tree
+              </p>
+              <p class="text-[14px] font-semibold text-[#1F2937]">
+                <i class="fa-solid fa-bangladeshi-taka-sign"></i>500tk
+              </p>
+            </div>
+            <button class="btn w-full rounded-full bg-[#15803D] text-white">
+              Add to Cart
+            </button>
+          </div>
+          <div class="p-4">
+            <img class="mb-3" src="./assets/about.png" alt="" />
+            <h4 class="mb-2 text-[14px] font-semibold text-[#1F2937]">
+              Mango Tree
+            </h4>
+            <p class="mb-2 text-[12px] text-[rgba(31,41,55,0.8)]">
+              A fast-growing tropical tree that produces delicious, juicy
+              mangoes during summer. Its dense green
+            </p>
+            <div class="mb-3 flex items-center justify-between">
+              <p
+                class="giest-font bg-[#DCFCE7] px-3 py-1 text-[14px] font-medium text-[#15803D]"
+              >
+                Fruit Tree
+              </p>
+              <p class="text-[14px] font-semibold text-[#1F2937]">
+                <i class="fa-solid fa-bangladeshi-taka-sign"></i>500tk
+              </p>
+            </div>
+            <button class="btn w-full rounded-full bg-[#15803D] text-white">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- added to cart list -->
+        <div class="col-span-2">
+          <h3 class="mb-4 text-xl font-semibold">Your Cart</h3>
+          <div id="cart-detail-container">
+            <div class="mb-4 flex items-center justify-between">
+              <div class="ml-3">
+                <p class="mb-1 font-semibold text-[#1F2937]">Mango Tree</p>
+                <p class="text-[rgba(31,41,55,.5)]">
+                  <i class="fa-solid fa-bangladeshi-taka-sign"></i>500 x 1
+                </p>
+              </div>
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="font-medium text-[#1F2937]">Total:</p>
+            <p class="font-medium text-[#1F2937]">
+              <i class="fa-solid fa-bangladeshi-taka-sign"></i>500
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
