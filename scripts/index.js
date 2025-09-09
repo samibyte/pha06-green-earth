@@ -1,4 +1,13 @@
-const loadPlant = () => {
+const categoryActiveState = (id) => {
+  const categories = document.querySelectorAll(".category");
+  categories.forEach((category) => {
+    category.classList.remove("bg-[#15803D]", "text-white");
+  });
+  const category = document.getElementById(`category-${id}`);
+  category.classList.add("bg-[#15803D]", "text-white");
+};
+
+const loadPlants = () => {
   const url = "https://openapi.programming-hero.com/api/plants";
   fetch(url)
     .then((res) => res.json())
@@ -41,4 +50,48 @@ const displayPlants = (plants) => {
   });
 };
 
-loadPlant();
+const loadCategories = () => {
+  const url = "https://openapi.programming-hero.com/api/categories";
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayCategories(data.categories));
+};
+
+const displayCategories = (categories) => {
+  const categoryContainer = document.getElementById("category-container");
+  categoryContainer.innerHTML = `<ul>
+              <li>
+                <a
+                  onclick="loadPlants()"
+                  class="block rounded-[4px] px-2.5 py-2 font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer"
+
+                  >All Trees</a
+                >
+              </li>
+            </ul>`;
+
+  categories.forEach((category) => {
+    const categoryBox = document.createElement("ul");
+    categoryBox.innerHTML = `
+        <li>
+          <a onclick="loadCategoryPlants(${category.id}); categoryActiveState(${category.id})"
+            id="category-${category.id}"
+            class="category block rounded-[4px] px-2.5 py-2 font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer"
+            >${category.category_name}s</a
+          >
+        </li>
+    `;
+    categoryContainer.appendChild(categoryBox);
+  });
+};
+
+const loadCategoryPlants = (id) => {
+  const url = `https://openapi.programming-hero.com/api/category/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayPlants(data.plants));
+};
+
+loadCategories();
+loadPlants();
