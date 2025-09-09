@@ -40,7 +40,7 @@
   </head>
   <body>
     <!-- navbar section -->
-    <header>
+    <header class="sticky top-0 z-50 shadow-lg">
       <div class="navbar bg-base-100 md:px-34 bg-[#15803D] shadow-sm md:py-6">
         <div class="navbar-start">
           <div class="dropdown">
@@ -164,7 +164,51 @@
           id="plant-container"
         ></div>
         <!-- added to cart list -->
-        <div class="md:col-span-2">
+        <div class="drawer lg:drawer-open drawer-end">
+          <input id="cart-drawer" type="checkbox" class="drawer-toggle" />
+
+          <div class="drawer-content">
+            <label
+              for="cart-drawer"
+              class="btn btn-ghost fixed bottom-8 right-4 z-50 lg:hidden"
+            >
+              <div class="rounded-full bg-white p-3">
+                <i class="fa-solid fa-cart-shopping text-xl"></i>
+              </div>
+            </label>
+          </div>
+
+          <div class="drawer-side">
+            <label for="cart-drawer" class="drawer-overlay"></label>
+            <div
+              class="menu bg-base-100 text-base-content mt-16 h-[calc(100vh-64px)] w-80 p-4 lg:mt-0"
+              id="cart-panel"
+            >
+              <h3 class="mb-4 text-xl font-semibold">Your Cart</h3>
+
+              <!--cart item container -->
+              <div class="mb-4 flex items-center justify-between">
+                <div class="ml-3">
+                  <p class="mb-1 font-semibold text-[#1F2937]">Mango Tree</p>
+                  <p class="text-[rgba(31,41,55,.5)]">
+                    <i class="fa-solid fa-bangladeshi-taka-sign"></i> 500 x 1
+                  </p>
+                </div>
+                <i class="fa-solid fa-xmark cursor-pointer"></i>
+              </div>
+
+              <!-- Total -->
+              <div class="mt-4 flex items-center justify-between">
+                <p class="font-medium text-[#1F2937]">Total:</p>
+                <p class="font-medium text-[#1F2937]">
+                  <i class="fa-solid fa-bangladeshi-taka-sign"></i> 500
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="md:col-span-2">
           <h3 class="mb-4 text-xl font-semibold">Your Cart</h3>
           <div id="cart-detail-container">
             <div class="mb-4 flex items-center justify-between">
@@ -183,7 +227,7 @@
               <i class="fa-solid fa-bangladeshi-taka-sign"></i>500
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 

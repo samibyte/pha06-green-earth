@@ -95,3 +95,22 @@ const loadCategoryPlants = (id) => {
 
 loadCategories();
 loadPlants();
+
+const cart = document.getElementById("cart-panel");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  console.log(scrollY);
+
+  if (scrollY >= 550) {
+    // stick drawer below navbar
+    cart.style.position = "sticky";
+    cart.style.top = 85 + "px";
+    cart.style.height = `calc(100vh - ${85}px)`;
+  } else {
+    // normal drawer position
+    cart.style.position = "static";
+    cart.style.top = "auto";
+    cart.style.height = "calc(100vh - 0px)";
+  }
+});
