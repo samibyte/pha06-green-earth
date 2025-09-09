@@ -32,5 +32,5 @@ Variables are assigned based on their position within the array.
 
 ## 5. Explain template literals in ES6. How are they different from string concatenation?
 
-Template literals uses backticks. It's a new a to define strings. It allows to embed expression using the ${expression} syntax. It also enables multi lines without needing escape charecters line \n for line break.
-It improves readability as well.
+Template literals uses backticks. It's a new a to define strings. It allows to embed expression using the ${expression} syntax. It also enables multi lines without needing escape charecters like \n for line break.
+It improves readability as well. It makes concatenation much easier.
