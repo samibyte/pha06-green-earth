@@ -39,7 +39,7 @@ const displayPlants = (plants) => {
                 <i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}
               </p>
             </div>
-            <button class="btn w-full rounded-full bg-[#15803D] text-white">
+            <button class="cart-btn btn w-full rounded-full bg-[#15803D] text-white">
               Add to Cart
             </button>
             </div>
@@ -96,19 +96,95 @@ const loadCategoryPlants = (id) => {
 loadCategories();
 loadPlants();
 
+// add to cart functionality
+let totalPrice = 0;
+const plantContainer = document.getElementById("plant-container");
+plantContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cart-btn")) {
+    const cartItemContainer = document.getElementById("cart-item-container");
+    const cartPriceContainer = document.getElementById("cart-price-container");
+    cartPriceContainer.innerHTML = "";
+    const cartBtn = e.target;
+
+    const plantName = cartBtn.parentNode.children[0].innerText;
+    const plantPrice = cartBtn.parentNode.children[2].children[1].innerText;
+    const plantPriceNum = Number(plantPrice);
+
+    totalPrice += plantPriceNum;
+
+    const cartDiv = document.createElement("div");
+    cartDiv.innerHTML = `
+                <div
+                  class="mb-2 flex items-center justify-between bg-[#F0FDF4] px-3 py-2"
+                >
+                  <div class="ml-3">
+                    <p class="mb-1 font-semibold text-[#1F2937]">${plantName}</p>
+                    <p class="text-[rgba(31,41,55,.5)]">
+                      <i class="fa-solid fa-bangladeshi-taka-sign"></i>
+                      <span>${plantPrice}</span> x 1
+                    </p>
+                  </div>
+                  <i class="fa-solid fa-xmark cursor-pointer cart-delete-btn"></i>
+                </div>
+    `;
+
+    const totalPriceDiv = document.createElement("div");
+    totalPriceDiv.innerHTML = `
+                <div class="mt-4 flex items-center justify-between">
+                  <p class="font-medium text-[#1F2937]">Total:</p>
+                  <p class="font-medium text-[#1F2937]">
+                    <i class="fa-solid fa-bangladeshi-taka-sign"></i>${totalPrice}
+                  </p>
+                </div>
+    `;
+    cartItemContainer.appendChild(cartDiv);
+    cartPriceContainer.appendChild(totalPriceDiv);
+  }
+});
+
+const cartContainer = document.getElementById("cart-container");
+cartContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cart-delete-btn")) {
+    const cartItemContainer = document.getElementById("cart-item-container");
+    const cartPriceContainer = document.getElementById("cart-price-container");
+    cartPriceContainer.innerHTML = "";
+    const cartDeleteBtn = e.target;
+
+    const plantPrice =
+      cartDeleteBtn.parentNode.children[0].children[1].children[1].innerText;
+    console.log(plantPrice);
+    const cartDiv = cartDeleteBtn.parentNode.remove();
+    const plantPriceNum = Number(plantPrice);
+
+    totalPrice -= plantPriceNum;
+
+    if (totalPrice === 0) {
+      cartPriceContainer.innerHTML = "";
+    } else {
+      const totalPriceDiv = document.createElement("div");
+      totalPriceDiv.innerHTML = `
+                <div class="mt-4 flex items-center justify-between">
+                  <p class="font-medium text-[#1F2937]">Total:</p>
+                  <p class="font-medium text-[#1F2937]">
+                    <i class="fa-solid fa-bangladeshi-taka-sign"></i>${totalPrice}
+                  </p>
+                </div>
+    `;
+      cartPriceContainer.appendChild(totalPriceDiv);
+    }
+  }
+});
+
+// cart list sticky overlap fix
 const cart = document.getElementById("cart-panel");
 
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-  console.log(scrollY);
-
   if (scrollY >= 550) {
-    // stick drawer below navbar
     cart.style.position = "sticky";
     cart.style.top = 85 + "px";
     cart.style.height = `calc(100vh - ${85}px)`;
   } else {
-    // normal drawer position
     cart.style.position = "static";
     cart.style.top = "auto";
     cart.style.height = "calc(100vh - 0px)";
