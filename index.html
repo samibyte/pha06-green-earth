@@ -38,7 +38,7 @@
     <!-- custom css link -->
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
-  <body>
+  <body class="bg-[#F0FDF4]">
     <!-- navbar section -->
     <header class="sticky top-0 z-50 shadow-lg">
       <div class="navbar bg-base-100 md:px-34 bg-[#15803D] shadow-sm md:py-6">
@@ -65,7 +65,7 @@
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li><a>About</a></li>
-              <li><a>Galery</a></li>
+              <li><a>Galary</a></li>
               <li><a>Plant a Tree</a></li>
             </ul>
           </div>
@@ -76,7 +76,7 @@
         <div class="navbar-center hidden lg:flex">
           <ul class="flex gap-6 text-white">
             <li><a class="cursor-pointer hover:underline">About</a></li>
-            <li><a class="cursor-pointer hover:underline">Galery</a></li>
+            <li><a class="cursor-pointer hover:underline">Galary</a></li>
             <li><a class="cursor-pointer hover:underline">Plant a Tree</a></li>
           </ul>
         </div>
@@ -198,12 +198,23 @@
                 <div id="cart-item-container"></div>
                 <div id="cart-price-container"></div>
               </div>
-              <!-- Total -->
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="detail_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="details-container"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <!-- About campaign  -->
     <section class="mx-auto mb-24 w-11/12 md:w-9/12">
@@ -241,19 +252,19 @@
       </h2>
       <!-- stats container -->
       <div class="flex flex-col justify-center gap-12 text-center md:flex-row">
-        <div class="flex-1 bg-white p-10">
+        <div class="flex-1 rounded-xl bg-white p-10 shadow">
           <p class="geist-font mb-3 text-3xl font-semibold text-[#15803D]">
             500k+
           </p>
           <p class="text-[rgba(31,41,55,.8)]">Trees Planted</p>
         </div>
-        <div class="flex-1 bg-white p-10">
+        <div class="flex-1 rounded-xl bg-white p-10 shadow">
           <p class="geist-font mb-3 text-3xl font-semibold text-[#15803D]">
             120+
           </p>
           <p class="text-[rgba(31,41,55,.8)]">Communities Involved</p>
         </div>
-        <div class="flex-1 bg-white p-10">
+        <div class="flex-1 rounded-xl bg-white p-10 shadow">
           <p class="geist-font mb-3 text-3xl font-semibold text-[#15803D]">
             30+
           </p>
@@ -273,15 +284,19 @@
         class="max-w-11/12 md:max-w-4/12 mx-auto rounded-xl bg-[#15803D] p-5 md:p-10"
         action=""
       >
-        <input type="text" placeholder="Your Name" class="input mb-3 w-full" />
+        <input
+          type="text"
+          placeholder="Your Name"
+          class="input mb-3 w-full focus:outline-none"
+        />
         <input
           type="email"
           placeholder="Your Email Address"
-          class="input mb-3 w-full"
+          class="input mb-3 w-full focus:outline-none"
         />
         <input
           type="number"
-          class="input validator mb-3 w-full placeholder-[#1F2937]"
+          class="input validator mb-3 w-full placeholder-[#1F2937] focus:outline-none"
           required
           placeholder="Number of Trees"
           min="1"

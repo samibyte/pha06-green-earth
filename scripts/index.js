@@ -32,17 +32,17 @@ const displayPlants = (plants) => {
   plants.forEach((plant) => {
     const plantBox = document.createElement("div");
     plantBox.innerHTML = `
-      <div class="rounded-lg">
-            <img class="object-cover mb-5 rounded-t-lg w-full h-[350px]" src="${plant.image}" alt="" />
+      <div class="rounded-lg bg-white p-4">
+            <img class="object-cover mb-5 rounded-lg w-full h-[350px]" src="${plant.image}" alt="" />
             <div class="mx-4">
-              <h4 class="mb-2 text-[14px] font-semibold text-[#1F2937]">
+              <h4 onclick="loadPlantDetail(${plant.id})" class="cursor-pointer mb-2 text-[14px] font-semibold text-[#1F2937]">
               ${plant.name}
             </h4>
             <p class="line-clamp-3 mb-2 text-[12px] text-[rgba(31,41,55,0.8)]">${plant.description}
             </p>
             <div class="mb-3 flex items-center justify-between">
               <p
-                class="giest-font bg-[#DCFCE7] px-3 py-1 text-[14px] font-medium text-[#15803D]"
+                class="giest-font rounded-full bg-[#DCFCE7] px-3 py-1 text-[14px] font-medium text-[#15803D]"
               >
                 ${plant.category}
               </p>
@@ -50,7 +50,7 @@ const displayPlants = (plants) => {
                 <i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}
               </p>
             </div>
-            <button class="cart-btn btn w-full rounded-full bg-[#15803D] text-white">
+            <button class="cart-btn btn w-full rounded-full hover:bg-[#0a5827] bg-[#15803D] text-white">
               Add to Cart
             </button>
             </div>
@@ -76,7 +76,7 @@ const displayCategories = (categories) => {
               <li>
                 <a
                   onclick="loadPlants(); categoryActiveState('0')"
-                  class="block rounded-[4px] px-2.5 py-2 text-center md:text-left font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer category"
+                  class="block rounded-[4px] px-2.5 py-2 text-center md:text-left font-medium text-[#1F2937] bg-[#15803D] text-white hover:bg-[#4bd87f] cursor-pointer category"
                   id="category-0"
                   >All Trees</a
                 >
@@ -105,6 +105,27 @@ const loadCategoryPlants = (id) => {
     .then((data) => displayPlants(data.plants));
 };
 
+const loadPlantDetail = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  const res = await fetch(url);
+  plantDetail = await res.json();
+  displayPlantDetail(plantDetail.plants);
+};
+
+const displayPlantDetail = (detail) => {
+  const detailsContainer = document.getElementById("details-container");
+  detailsContainer.innerHTML = `
+    <div>
+            <h4 class="text-2xl font-bold mb-3" >${detail.name}</h4>
+            <img class="object-cover mb-5 rounded-lg w-full h-[350px]" src="${detail.image}" alt="" />
+            <p class="mb-3" ><span class="font-bold ">Category: </span>${detail.category}</p>
+            <p class="mb-3" ><span class="font-bold ">Price: </span><i class="fa-solid fa-bangladeshi-taka-sign"></i>${detail.price}</p>
+            <p><span class="font-bold">Description: </span>${detail.description}</p>
+          </div>
+  `;
+  document.getElementById("detail_modal").showModal();
+};
+
 loadCategories();
 loadPlants();
 
@@ -113,6 +134,7 @@ let totalPrice = 0;
 const plantContainer = document.getElementById("plant-container");
 plantContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("cart-btn")) {
+    alert("");
     const cartItemContainer = document.getElementById("cart-item-container");
     const cartPriceContainer = document.getElementById("cart-price-container");
     cartPriceContainer.innerHTML = "";
