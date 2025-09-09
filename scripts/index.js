@@ -134,7 +134,6 @@ let totalPrice = 0;
 const plantContainer = document.getElementById("plant-container");
 plantContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("cart-btn")) {
-    alert("");
     const cartItemContainer = document.getElementById("cart-item-container");
     const cartPriceContainer = document.getElementById("cart-price-container");
     cartPriceContainer.innerHTML = "";
@@ -145,7 +144,7 @@ plantContainer.addEventListener("click", (e) => {
     const plantPriceNum = Number(plantPrice);
 
     totalPrice += plantPriceNum;
-
+    alert(`${plantName} has been added to your cart.`);
     const cartDiv = document.createElement("div");
     cartDiv.innerHTML = `
                 <div
@@ -155,7 +154,7 @@ plantContainer.addEventListener("click", (e) => {
                     <p class="mb-1 font-semibold text-[#1F2937]">${plantName}</p>
                     <p class="text-[rgba(31,41,55,.5)]">
                       <i class="fa-solid fa-bangladeshi-taka-sign"></i>
-                      <span>${plantPrice}</span> x 1
+                      <span>${plantPrice}</span>
                     </p>
                   </div>
                   <i class="fa-solid fa-xmark cursor-pointer cart-delete-btn"></i>
