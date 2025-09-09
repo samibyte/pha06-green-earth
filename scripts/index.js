@@ -64,7 +64,7 @@ const displayCategories = (categories) => {
               <li>
                 <a
                   onclick="loadPlants()"
-                  class="block rounded-[4px] px-2.5 py-2 font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer"
+                  class="block rounded-[4px] px-2.5 py-2 text-center md:text-left font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer"
 
                   >All Trees</a
                 >
@@ -77,7 +77,7 @@ const displayCategories = (categories) => {
         <li>
           <a onclick="loadCategoryPlants(${category.id}); categoryActiveState(${category.id})"
             id="category-${category.id}"
-            class="category block rounded-[4px] px-2.5 py-2 font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer"
+            class="category block text-center  md:text-left rounded-[4px] px-2.5 py-2 font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer"
             >${category.category_name}s</a
           >
         </li>
