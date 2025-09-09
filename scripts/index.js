@@ -63,9 +63,9 @@ const displayCategories = (categories) => {
   categoryContainer.innerHTML = `<ul>
               <li>
                 <a
-                  onclick="loadPlants()"
-                  class="block rounded-[4px] px-2.5 py-2 text-center md:text-left font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer"
-
+                  onclick="loadPlants(); categoryActiveState('0')"
+                  class="block rounded-[4px] px-2.5 py-2 text-center md:text-left font-medium text-[#1F2937] hover:bg-[#4bd87f] cursor-pointer category"
+                  id="category-0"
                   >All Trees</a
                 >
               </li>
